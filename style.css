@@ -1,303 +1,107 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* style.css */
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* Estilo para usar la fuente Inter */
 body {
-  font-family: "Arial", sans-serif;
-  line-height: 1.6;
-  color: #333;
+    font-family: 'Inter', sans-serif;
+    /* Habilita el desplazamiento suave al hacer clic en enlaces de anclaje */
+    scroll-behavior: smooth;
 }
 
-p {
-  text-align: center;
+/* Estilo para imagen de héroe */
+.hero-image {
+    /* Establece la imagen de fondo */
+    /* Asegúrate de que la ruta 'img/hero-bg.png' sea correcta o usa un placeholder */
+    background-image: url('img/hero-bg.png');
+    /* URL de respaldo por si la imagen no carga */
+    /* background-image: url('https://placehold.co/1200x400/a0aec0/ffffff?text=Estaci%C3%B3n+Solar+ITSON'); */
+    /* Asegura que la imagen cubra todo el contenedor */
+    background-size: cover;
+    /* Centra la imagen en el contenedor */
+    background-position: center;
 }
 
-/* Estilos de Secciones */
-section {
-  min-height: 100vh;
-  padding-top: 100px;
-  padding-bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* Animación para las tarjetas de beneficios al pasar el mouse */
+.info-card:hover {
+    /* Mueve la tarjeta ligeramente hacia arriba */
+    transform: translateY(-5px);
+    /* Aplica una transición suave al efecto de transformación */
+    transition: transform 0.3s ease;
 }
 
-section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
-  color: #0e5688;
-}
-
-footer {
-  background-color: #005bac;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Barra de Navegación */
-.navbar {
-  background-color: #005bac;
-  color: #fff;
-  padding: 1rem 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 10px;
-  transition: background-color 0.3s ease;
-  border-radius: 4px;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #004080;
-}
-
-/* Botón de menú móvil */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-.alternate-bg {
-  background-color: #f4f4f4;
-}
-
-/* Sección Inicio */
-.hero {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("img/logo.png") no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  padding-top: 150px;
-  padding-bottom: 100px;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-/* Botón Call-to-Action */
-.cta-button {
-  display: inline-block;
-  background-color: #0e5688;
-  color: #fff;
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.cta-button:hover {
-  background-color: #0e5688;
-}
-
-/* Layout de Grid */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.grid-item {
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.grid-item h3 {
-  color: #333;
-  margin-bottom: 10px;
-}
-
-/* Imágenes responsivas */
-.responsive-img {
-  text-align: center;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 8px;
-}
-
-/* Formulario de Contacto */
-.contact-form {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.contact-form textarea {
-  resize: vertical;
-}
-
-.contact-form button {
-  width: 100%;
-}
-
-#inicio.hero {
-  padding-top: 100px;
-  padding-bottom: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-
-/* --- Media Queries --- */
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: center;
+/* --- Estilos para el Carrusel de Imágenes --- */
+.slideshow-container {
+    /* Necesario para posicionar las imágenes absolutamente dentro */
+    position: relative;
+    /* Asegura que ocupe todo el ancho de su contenedor padre */
     width: 100%;
-  }
+    /* Oculta las partes de las imágenes que excedan el contenedor */
+    overflow: hidden;
+    /* Aplica bordes redondeados */
+    border-radius: 0.5rem; /* Equivalente a rounded-lg de Tailwind */
+    /* Aplica una sombra sutil */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Sombra estándar */
+}
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .nav-links.active {
-    display: flex;
-    border-top: 2px solid #fff;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 10px;
-  }
-
-  .menu-toggle {
-    display: block;
+.slideshow-image {
+    /* Permite superponer las imágenes */
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-
-  /* Ajusta el padding superior para que el contenido no quede debajo del menú más alto */
-  section {
-    padding-top: 120px;
-  }
-
-  .hero {
-    padding-top: 180px;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  section h2 {
-    font-size: 1.8rem;
-  }
+    top: 0;
+    left: 0;
+    /* Asegura que la imagen ocupe todo el contenedor */
+    width: 100%;
+    height: 100%;
+    /* Escala la imagen para mantener su relación de aspecto mientras llena el contenedor */
+    object-fit: cover;
+    /* Inicialmente oculta (se mostrará con la clase 'active') */
+    opacity: 0;
+    /* Define la transición para el efecto de fundido */
+    transition: opacity 1s ease-in-out;
 }
 
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
+.slideshow-image.active {
+    /* Hace visible la imagen activa */
+    opacity: 1;
 }
+
+/* --- Estilo para el Contenedor del Mapa Leaflet --- */
+#map {
+    /* Define una altura fija para el mapa */
+    height: 450px; /* Ajusta esta altura según sea necesario */
+    /* Hace que el mapa ocupe todo el ancho disponible */
+    width: 100%;
+    /* Asegura que el mapa se muestre sobre otros elementos si es necesario */
+    z-index: 10;
+    /* Aplica bordes redondeados (coincide con rounded-lg) */
+    border-radius: 0.5rem;
+    /* Aplica una sombra (coincide con shadow-md) */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Estilos para el Acordeón FAQ --- */
+.faq-question {
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    transition: background-color 0.2s ease; /* Suave transición al pasar el mouse (opcional) */
+}
+
+/* Estilo para el contenedor de la respuesta */
+.faq-answer {
+    max-height: 0; /* Inicialmente la altura máxima es 0 */
+    opacity: 0; /* Inicialmente invisible */
+    overflow: hidden; /* Oculta el contenido que excede la altura */
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out, margin-top 0.5s ease-out; /* Transiciones suaves */
+    margin-top: 0; /* Sin margen superior cuando está oculto */
+}
+
+/* Estilo para la respuesta cuando está visible */
+.faq-answer.faq-answer-visible {
+    max-height: 500px; /* Altura máxima suficiente para el contenido (ajusta si es necesario) */
+    opacity: 1; /* Totalmente visible */
+    margin-top: 0.5rem; /* Equivalente a mt-2 de Tailwind, añade espacio arriba */
+}
+
+/* Estilo para el indicador (+/-) */
+.faq-indicator {
+    transition: transform 0.3s ease; /* Animación suave para la rotación (opcional) */
+}
+
+/* Puedes añadir más estilos personalizados aquí si es necesario */

@@ -3,138 +3,322 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Estaciones de recarga solar para dispositivos eléctricos. Energía limpia y accesible."
+    <title>Estaciones de Recarga Solar - ITSON Campus Nainari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
     />
-    <title>Estaciones de Recarga Solar</title>
-    <link rel="icon" href="img/favicon.jpeg" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <header class="navbar">
-      <div class="container nav-container">
-        <a href="#inicio" class="logo">EcoCharge</a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#beneficios">Beneficios</a></li>
-            <li><a href="#como-funciona">Cómo Funciona</a></li>
-            <li><a href="#modelos">Modelos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
-        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-      </div>
+  <body class="bg-gray-100 text-gray-800">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <nav class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+          <div class="text-xl font-bold text-blue-600">ITSON Solar</div>
+
+          <div class="hidden lg:flex space-x-4">
+            <a href="#inicio" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">Inicio</a>
+            <a href="#proyecto" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">El Proyecto</a>
+            <a href="#beneficios" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">Beneficios</a>
+            <a href="#tecnologia" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">Tecnología</a>
+            <a href="#ubicaciones" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">Ubicaciones</a>
+            <a href="#faq" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">FAQ</a>
+            <a href="#contacto" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">Contacto</a>
+          </div>
+
+          <div class="lg:hidden flex items-center">
+            <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+              <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 6h16M4 12h16m-7 6h7"></path> </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden py-3">
+          <a href="#inicio" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md">Inicio</a>
+          <a href="#proyecto" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md">El Proyecto</a>
+          <a href="#beneficios" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md">Beneficios</a>
+          <a href="#tecnologia" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md">Tecnología</a>
+          <a href="#ubicaciones" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md">Ubicaciones</a>
+          <a href="#faq" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md">FAQ</a>
+          <a href="#contacto" class="block text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-3 py-2 rounded-md">Contacto</a>
+        </div>
+      </nav>
     </header>
 
-    <main>
-      <section id="inicio" class="hero">
-        <div class="container">
-          <h1>Recarga tu Energía con el Poder del Sol</h1>
-          <p>
-            Conecta tus dispositivos a una nueva era: estaciones de carga solar
-            ecológicas, prácticas y siempre disponibles.
-          </p>
-          <a href="#modelos" class="cta-button">Descubre los Modelos</a>
-        </div>
-      </section>
+    <section id="inicio" class="hero-image text-white py-24 md:py-32">
+      <div class="container mx-auto px-6 text-center bg-black bg-opacity-50 rounded-lg py-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Estaciones de Recarga Solar en ITSON
+        </h1>
+        <p class="text-lg md:text-xl mb-6">
+          Energía limpia y renovable para tus dispositivos en el Campus Nainari.
+        </p>
+        <a href="#proyecto" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Conoce Más</a>
+      </div>
+    </section>
 
-      <section id="beneficios">
-        <div class="container">
-          <h2>¿Por Qué Elegir Energía Solar?</h2>
-          <div class="grid-container">
-            <div class="grid-item">
-              <h3>Ecoamigable</h3>
-              <p>
-                Reduce las emisiones de carbono aprovechando una fuente de
-                energía 100% limpia y renovable.
+    <section id="proyecto" class="py-16 md:py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-10 text-blue-700">
+          Nuestro Proyecto: Carga Sostenible
+        </h2>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/2">
+            <img
+              src="img/panel-solar-y-dispositivos.jpeg"
+              alt="[Imagen de Paneles solares y dispositivos electrónicos]"
+              class="rounded-lg shadow-lg w-full h-auto object-cover"
+              onerror="this.src='https://placehold.co/600x400/cccccc/ffffff?text=Imagen+no+disponible'"
+            />
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="text-2xl font-semibold mb-4">Objetivo Principal</h3>
+            <p class="text-gray-700 mb-4">
+              Desarrollar e implementar estaciones de recarga alimentadas por
+              energía solar en el campus Nainari de ITSON. Nuestro objetivo es
+              ofrecer una alternativa sostenible para cargar dispositivos
+              electrónicos, reduciendo la dependencia de la red eléctrica
+              convencional.
+            </p>
+            <h3 class="text-2xl font-semibold mb-4">Propósito del Sistema</h3>
+            <p class="text-gray-700">
+              Estas estaciones no solo proporcionan un servicio práctico a la
+              comunidad universitaria, sino que también sirven como una
+              herramienta educativa, demostrando el potencial y la viabilidad de
+              las energías renovables en nuestro entorno diario. Queremos
+              fomentar una cultura de sostenibilidad en el campus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="py-16 md:py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-10 text-blue-700">
+          Impacto Ambiental Positivo
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center info-card">
+            <div class="text-4xl text-blue-600 mb-4">☀️</div>
+            <h3 class="text-xl font-semibold mb-2">Energía Limpia</h3>
+            <p class="text-gray-600">
+              Utilizamos la energía del sol, una fuente 100% renovable y no
+              contaminante, reduciendo la huella de carbono del campus.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center info-card">
+            <div class="text-4xl text-blue-600 mb-4">💡</div>
+            <h3 class="text-xl font-semibold mb-2">Reducción de Consumo</h3>
+            <p class="text-gray-600">
+              Al ofrecer una alternativa solar, disminuimos la demanda de
+              electricidad generada por fuentes convencionales.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center info-card">
+            <div class="text-4xl text-blue-600 mb-4">🎓</div>
+            <h3 class="text-xl font-semibold mb-2">Educación y Conciencia</h3>
+            <p class="text-gray-600">
+              Promovemos la importancia de las energías renovables y la
+              sostenibilidad entre estudiantes, profesores y personal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologia" class="py-16 md:py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-10 text-blue-700">
+          Tecnología Detrás de la Carga
+        </h2>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/2 relative h-64 md:h-96 rounded-lg shadow-lg overflow-hidden slideshow-container">
+            <img
+              src="img/sistema-energia-solar.jpg"
+              alt="[Imagen de Sistema de Energía Solar]"
+              class="slideshow-image"
+              onerror="this.src='https://placehold.co/600x400/cccccc/ffffff?text=Imagen+no+disponible'"
+            />
+            <img
+              src="img/panel-fotovoltaico.jpeg"
+              alt="[Imagen de Paneles Solares Fotovoltaicos]"
+              class="slideshow-image"
+              onerror="this.src='https://placehold.co/600x400/cccccc/ffffff?text=Imagen+no+disponible'"
+            />
+            <img
+              src="img/baterias-solares.jpeg"
+              alt="[Imagen de Baterías de Almacenamiento]"
+              class="slideshow-image"
+              onerror="this.src='https://placehold.co/600x400/cccccc/ffffff?text=Imagen+no+disponible'"
+            />
+            <img
+              src="img/controlador-carga-solar.jpeg"
+              alt="[Imagen de Controlador de Carga Solar]"
+              class="slideshow-image"
+              onerror="this.src='https://placehold.co/600x400/cccccc/ffffff?text=Imagen+no+disponible'"
+            />
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="text-2xl font-semibold mb-4">Componentes Clave</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+              <li>
+                <strong>Paneles Solares Fotovoltaicos:</strong> Capturan la luz
+                solar y la convierten en electricidad (corriente continua).
+              </li>
+              <li>
+                <strong>Controlador de Carga:</strong> Regula la energía que va
+                del panel a la batería para evitar sobrecargas y optimizar la
+                carga.
+              </li>
+              <li>
+                <strong>Baterías de Almacenamiento:</strong> Guardan la energía
+                generada para poder usarla cuando no hay sol (noches, días
+                nublados).
+              </li>
+              <li>
+                <strong>Inversor (Opcional):</strong> Si se necesitan salidas de
+                corriente alterna (enchufes normales), convierte la corriente
+                continua de la batería.
+              </li>
+              <li>
+                <strong>Puertos de Carga USB:</strong> Salidas directas
+                (generalmente de corriente continua) para cargar dispositivos
+                móviles.
+              </li>
+              <li>
+                <strong>Estructura y Gabinete:</strong> Soporte físico para los
+                paneles y protección para los componentes electrónicos.
+              </li>
+            </ul>
+            <p class="mt-4 text-gray-600 italic">
+              Nuestras estaciones están diseñadas para ser eficientes, seguras y
+              duraderas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicaciones" class="py-16 md:py-20 bg-gray-50">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-10 text-blue-700">
+          Encuentra las Estaciones
+        </h2>
+        <p class="text-lg text-gray-700 mb-6">
+          Explora el mapa para encontrar las estaciones de recarga solar en el
+          Campus Nainari.
+        </p>
+        <div id="map" class="rounded-lg shadow-md"></div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-16 md:py-20 bg-white">
+      <div class="container mx-auto px-6 max-w-3xl">
+        <h2 class="text-3xl font-bold text-center mb-10 text-blue-700">
+          Preguntas Frecuentes
+        </h2>
+        <div class="space-y-4"> <div class="border-b border-gray-200 pb-4">
+            <button class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold text-gray-800 hover:text-blue-600 focus:outline-none">
+              <span>¿Cómo uso las estaciones de recarga?</span>
+              <span class="faq-indicator text-blue-600 text-2xl font-light">+</span>
+            </button>
+            <div class="faq-answer pl-2">
+              <p class="text-gray-700">
+                Simplemente conecta tu dispositivo a uno de los puertos USB
+                disponibles. La carga comenzará automáticamente si la estación
+                tiene energía almacenada o está generando activamente.
               </p>
             </div>
-            <div class="grid-item">
-              <h3>Eficiencia Económica</h3>
-              <p>
-                Olvídate de las facturas de electricidad: carga tus dispositivos
-                sin costo adicional.
+          </div>
+          <div class="border-b border-gray-200 pb-4">
+            <button class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold text-gray-800 hover:text-blue-600 focus:outline-none">
+              <span>¿Tienen costo?</span>
+              <span class="faq-indicator text-blue-600 text-2xl font-light">+</span>
+            </button>
+            <div class="faq-answer pl-2">
+              <p class="text-gray-700">
+                No, el uso de las estaciones de recarga solar es completamente
+                gratuito para todos los miembros de la comunidad universitaria de
+                ITSON.
               </p>
             </div>
-            <div class="grid-item">
-              <h3>Disponibilidad</h3>
-              <p>
-                Instala estaciones en cualquier lugar: desde centros urbanos
-                hasta zonas rurales sin red eléctrica.
+          </div>
+          <div class="border-b border-gray-200 pb-4">
+            <button class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold text-gray-800 hover:text-blue-600 focus:outline-none">
+              <span>¿Funcionan de noche o en días nublados?</span>
+              <span class="faq-indicator text-blue-600 text-2xl font-light">+</span>
+            </button>
+            <div class="faq-answer pl-2">
+              <p class="text-gray-700">
+                Sí, las estaciones están equipadas con baterías que almacenan la
+                energía solar durante el día. Esto permite que puedas cargar tus
+                dispositivos incluso cuando no hay sol directo, aunque la
+                disponibilidad dependerá del nivel de carga de la batería y del
+                uso reciente.
               </p>
             </div>
-            <div class="grid-item">
-              <h3>Practicidad</h3>
-              <p>
-                Recarga tus dispositivos mientras trabajas, estudias o disfrutas
-                al aire libre. ¡Siempre conectado!
+          </div>
+          <div class="border-b border-gray-200 pb-4">
+            <button class="faq-question w-full flex justify-between items-center text-left text-xl font-semibold text-gray-800 hover:text-blue-600 focus:outline-none">
+              <span>¿Es seguro dejar mi dispositivo cargando?</span>
+              <span class="faq-indicator text-blue-600 text-2xl font-light">+</span>
+            </button>
+            <div class="faq-answer pl-2">
+              <p class="text-gray-700">
+                Al igual que en cualquier espacio público, te recomendamos no
+                dejar tus dispositivos desatendidos mientras se cargan. La
+                seguridad de tus pertenencias es tu responsabilidad.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="como-funciona" class="alternate-bg">
-        <div class="container">
-          <h2>¿Cómo Funcionan Nuestras Estaciones?</h2>
-          <p>
-            Capturamos la energía solar mediante paneles de alto rendimiento. La
-            electricidad se almacena en baterías o se distribuye directamente
-            mediante puertos USB y tomas de corriente, listas para mantener tus
-            dispositivos encendidos en todo momento.
-          </p>
-          <img
-            src="img/diagrama-funcionamiento-estacion-solar.jpg"
-            class="responsive-img"
-          />
-        </div>
-      </section>
+    <section id="contacto" class="py-16 md:py-20 bg-gray-800 text-white">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6">¿Tienes Más Preguntas?</h2>
+        <p class="text-lg text-gray-300 mb-8">
+          Si tu duda no fue resuelta en la sección de FAQ o tienes alguna
+          sugerencia sobre el proyecto, contáctanos.
+        </p>
+        <a
+          href="mailto:info.solar@itson.edu.mx"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+        >
+          Enviar un Correo
+        </a>
+      </div>
+    </section>
 
-      <section id="modelos">
-        <div class="container">
-          <h2>Explora Nuestros Modelos</h2>
-          <p>
-            Contamos con soluciones personalizadas: desde estaciones compactas
-            hasta mobiliario urbano con tecnología integrada.
-          </p>
-          <div class="grid-container">
-            <div class="grid-item model-card">
-              <h4>Modelo Urbano</h4>
-              <p>
-                Perfecto para espacios públicos. Conectividad múltiple,
-                estructura resistente y estilo moderno.
-              </p>
-            </div>
-            <div class="grid-item model-card">
-              <h4>Banca Solar</h4>
-              <p>
-                Relájate mientras recargas. Ideal para universidades, plazas y
-                zonas de espera.
-              </p>
-            </div>
-            <div class="grid-item model-card">
-              <h4>Estación Portátil</h4>
-              <p>
-                Ligera y eficiente. La mejor opción para eventos temporales,
-                ferias o emergencias.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
+    <footer class="bg-gray-900 text-gray-400 py-8">
+      <div class="container mx-auto px-6 text-center">
         <p>
-          &copy; <span id="current-year"></span> EcoCharge - Todos los derechos
+          &copy; 2025 Proyecto Estaciones Solares ITSON. Todos los derechos
           reservados.
         </p>
+        <p>Instituto Tecnológico de Sonora - Campus Nainari</p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
